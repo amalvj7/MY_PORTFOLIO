@@ -16,61 +16,68 @@ const ProjectCard = ({ title, description, tags, image, demoLink, githubLink }: 
 
   return (
     <div
-      className="group relative rounded-2xl overflow-hidden bg-card shadow-card hover:shadow-hover transition-all duration-300 hover:scale-105 cursor-pointer"
+      className="group relative rounded-lg overflow-hidden bg-white border border-gray-200 shadow-sm hover:shadow-lg transition-all duration-300 hover:-translate-y-1"
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >
       {/* Project Image */}
-      <div className="aspect-video overflow-hidden">
+      <div className="relative aspect-video overflow-hidden">
         <img
           src={image}
           alt={title}
-          className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
+          className="w-full h-full object-cover transition-all duration-300 group-hover:scale-105"
         />
+        
+        {/* Hover overlay */}
+        <div className={`absolute inset-0 bg-gradient-to-t from-gray-900/60 via-transparent to-transparent transition-opacity duration-300 ${
+          isHovered ? "opacity-100" : "opacity-0"
+        }`} />
+        
+        {/* Action buttons overlay */}
+        <div className={`absolute inset-0 flex items-center justify-center gap-3 transition-all duration-300 ${
+          isHovered ? "opacity-100" : "opacity-0"
+        }`}>
+          {demoLink && (
+            <Button 
+              size="sm" 
+              className="bg-indigo-600 hover:bg-indigo-700 text-white shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105"
+            >
+              <Eye className="w-4 h-4 mr-2" />
+              Live Demo
+            </Button>
+          )}
+          {githubLink && (
+            <Button 
+              size="sm" 
+              variant="outline" 
+              className="bg-white/90 hover:bg-white border-gray-200 text-gray-700 hover:text-gray-900 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105"
+            >
+              <Github className="w-4 h-4 mr-2" />
+              Code
+            </Button>
+          )}
+        </div>
       </div>
       
-      {/* Overlay */}
-      <div className={`absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent transition-opacity duration-300 ${
-        isHovered ? "opacity-100" : "opacity-70"
-      }`}>
-        {/* Content */}
-        <div className="absolute bottom-0 left-0 right-0 p-6 text-white">
-          <h3 className="text-xl font-bold mb-2">{title}</h3>
-          <p className="text-sm text-gray-200 mb-3 line-clamp-2">{description}</p>
-          
-          {/* Tags */}
-          <div className="flex flex-wrap gap-2 mb-4">
-            {tags.map((tag) => (
-              <span
-                key={tag}
-                className="px-2 py-1 text-xs font-medium bg-white/20 backdrop-blur-sm rounded-full"
-              >
-                {tag}
-              </span>
-            ))}
-          </div>
-          
-          {/* Action buttons - only show on hover */}
-          <div className={`flex gap-2 transition-all duration-300 ${
-            isHovered ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
-          }`}>
-            {demoLink && (
-              <Button size="sm" className="bg-primary/90 hover:bg-primary">
-                <Eye className="w-4 h-4 mr-2" />
-                View Project
-              </Button>
-            )}
-            {githubLink && (
-              <Button size="sm" variant="outline" className="border-white/20 text-white hover:bg-white/10">
-                <Github className="w-4 h-4 mr-2" />
-                GitHub
-              </Button>
-            )}
-            <Button size="sm" variant="outline" className="border-white/20 text-white hover:bg-white/10">
-              <ExternalLink className="w-4 h-4 mr-2" />
-              Demo
-            </Button>
-          </div>
+      {/* Content */}
+      <div className="p-6">
+        <h3 className="text-xl font-semibold mb-2 text-gray-900 group-hover:text-indigo-600 transition-colors duration-300">
+          {title}
+        </h3>
+        <p className="text-gray-600 mb-4 line-clamp-2 leading-relaxed">
+          {description}
+        </p>
+        
+        {/* Tags */}
+        <div className="flex flex-wrap gap-2">
+          {tags.map((tag, index) => (
+            <span
+              key={tag}
+              className="px-3 py-1 text-sm font-medium bg-gray-100 text-gray-700 rounded-full hover:bg-indigo-100 hover:text-indigo-700 transition-all duration-300 cursor-default"
+            >
+              {tag}
+            </span>
+          ))}
         </div>
       </div>
     </div>

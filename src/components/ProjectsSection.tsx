@@ -1,9 +1,23 @@
+import { useEffect, useRef, useState } from "react";
 import ProjectCard from "./ProjectCard";
 import project1 from "@/assets/project-1.jpg";
 import project2 from "@/assets/project-2.jpg";
 import project3 from "@/assets/project-3.jpg";
 
 const ProjectsSection = () => {
+  const [isVisible, setIsVisible] = useState(false);
+  const sectionRef = useRef<HTMLElement>(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => setIsVisible(entry.isIntersecting),
+      { threshold: 0.3 }
+    );
+    
+    if (sectionRef.current) observer.observe(sectionRef.current);
+    return () => observer.disconnect();
+  }, []);
+
   const projects = [
     {
       title: "AI-Powered Dashboard",
@@ -56,14 +70,20 @@ const ProjectsSection = () => {
   ];
 
   return (
-    <section className="py-20 bg-gradient-bg relative">
-      <div className="container mx-auto px-6">
+    <section 
+      ref={sectionRef}
+      id="projects"
+      className="pt-16 lg:pt-24 pb-32 bg-white relative"
+    >
+      <div className="container mx-auto px-6 max-w-7xl">
         {/* Section Title */}
-        <div className="text-center mb-16">
-          <h2 className="text-4xl lg:text-5xl font-bold text-foreground mb-4">
-            PROJECTS
+        <div className={`text-center mb-16 transition-all duration-1000 ${isVisible ? 'animate-fade-in-up' : 'opacity-0 translate-y-8'}`}>
+          <h2 className="text-3xl lg:text-4xl font-bold tracking-tight mb-4 text-gray-900">
+            Projects
           </h2>
-          <div className="w-24 h-1 bg-gradient-primary mx-auto rounded-full"></div>
+          <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+            Showcasing innovative solutions in machine learning, web development, and AI applications
+          </p>
         </div>
         
         {/* Projects Grid */}
@@ -71,7 +91,7 @@ const ProjectsSection = () => {
           {projects.map((project, index) => (
             <div
               key={index}
-              className="animate-fade-in-up"
+              className={`transition-all duration-1000 ${isVisible ? 'animate-fade-in-up' : 'opacity-0 translate-y-8'}`}
               style={{ animationDelay: `${index * 0.1}s` }}
             >
               <ProjectCard {...project} />
