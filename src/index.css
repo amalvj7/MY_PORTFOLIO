@@ -8,7 +8,7 @@ All colors MUST be HSL.
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
+    --background: 240 20% 98%;
     --foreground: 222.2 84% 4.9%;
 
     --card: 0 0% 100%;
@@ -17,26 +17,40 @@ All colors MUST be HSL.
     --popover: 0 0% 100%;
     --popover-foreground: 222.2 84% 4.9%;
 
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
-
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
+    /* Modern blue-green gradient theme */
+    --primary: 213 94% 68%;
+    --primary-foreground: 0 0% 100%;
+    --primary-glow: 213 94% 78%;
+    
+    --secondary: 160 84% 39%;
+    --secondary-foreground: 0 0% 100%;
+    
+    --accent: 267 83% 58%;
+    --accent-foreground: 0 0% 100%;
 
     --muted: 210 40% 96.1%;
     --muted-foreground: 215.4 16.3% 46.9%;
-
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
 
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 210 40% 98%;
 
     --border: 214.3 31.8% 91.4%;
     --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
+    --ring: 213 94% 68%;
 
-    --radius: 0.5rem;
+    /* Design system tokens */
+    --gradient-primary: linear-gradient(135deg, hsl(213, 94%, 68%), hsl(160, 84%, 39%));
+    --gradient-secondary: linear-gradient(135deg, hsl(267, 83%, 58%), hsl(213, 94%, 68%));
+    --gradient-bg: linear-gradient(135deg, hsl(240, 20%, 98%), hsl(220, 30%, 95%));
+    --gradient-card: linear-gradient(135deg, hsla(213, 94%, 68%, 0.1), hsla(160, 84%, 39%, 0.1));
+    
+    --shadow-glow: 0 20px 40px -12px hsla(213, 94%, 68%, 0.25);
+    --shadow-card: 0 4px 20px -4px hsla(213, 94%, 68%, 0.15);
+    --shadow-hover: 0 20px 40px -8px hsla(213, 94%, 68%, 0.3);
+    
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    
+    --radius: 1rem;
 
     --sidebar-background: 0 0% 98%;
 
