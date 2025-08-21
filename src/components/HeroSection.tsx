@@ -1,6 +1,34 @@
 import { Button } from "@/components/ui/button";
+import { useState, useEffect } from "react";
+import { ChevronDown } from "lucide-react";
 
 const HeroSection = () => {
+  const [typingText, setTypingText] = useState("");
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const texts = ["ML", "NLP", "Gen AI"];
+  
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentIndex((prev) => (prev + 1) % texts.length);
+    }, 2000);
+    return () => clearInterval(interval);
+  }, []);
+
+  useEffect(() => {
+    setTypingText("");
+    const currentText = texts[currentIndex];
+    let i = 0;
+    const typingInterval = setInterval(() => {
+      if (i < currentText.length) {
+        setTypingText(currentText.slice(0, i + 1));
+        i++;
+      } else {
+        clearInterval(typingInterval);
+      }
+    }, 100);
+    return () => clearInterval(typingInterval);
+  }, [currentIndex]);
+
   return (
     <section className="min-h-screen flex items-center justify-center bg-gradient-bg relative overflow-hidden">
       {/* Floating background elements */}
@@ -21,12 +49,10 @@ const HeroSection = () => {
                 AMAL NATH VJ
               </span>
             </h1>
-            <div className="flex items-center gap-4 text-lg text-muted-foreground">
-              <span className="text-primary font-medium">ML</span>
-              <span>|</span>
-              <span className="text-accent font-medium">NLP</span>
-              <span>|</span>
-              <span className="text-secondary font-medium">Gen AI</span>
+            <div className="flex items-center gap-4 text-lg text-muted-foreground min-h-[28px]">
+              <span className="text-primary font-medium">{typingText}</span>
+              <span className="animate-pulse">|</span>
+              <span className="text-accent font-medium">Specialist</span>
             </div>
           </div>
           
@@ -45,16 +71,29 @@ const HeroSection = () => {
         
         {/* Right side - Profile image */}
         <div className="flex justify-center animate-scale-in" style={{ animationDelay: '0.3s' }}>
-          <div className="relative">
-            <div className="w-80 h-80 lg:w-96 lg:h-96 rounded-3xl bg-gradient-card backdrop-blur-sm border border-white/20 shadow-glow overflow-hidden">
-              <div className="w-full h-full bg-gradient-to-br from-primary/20 to-secondary/20 flex items-center justify-center">
-                <div className="text-6xl">👨‍💻</div>
-              </div>
+          <div className="relative group">
+            <div className="w-80 h-80 lg:w-96 lg:h-96 rounded-3xl bg-gradient-card backdrop-blur-sm border border-white/20 shadow-glow overflow-hidden transition-all duration-500 group-hover:shadow-2xl group-hover:scale-105 group-hover:shadow-primary/20">
+              <img 
+                src="/lovable-uploads/300b2bb6-6f4b-44c8-8c57-4b5b2ee41b0b.png"
+                alt="Amal Nath VJ - Professional Portrait"
+                className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-primary/20 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
             </div>
             <div className="absolute -bottom-4 left-1/2 transform -translate-x-1/2 text-sm text-muted-foreground">
-              <span className="text-primary">WILL</span> | <span className="text-accent">SORT</span> | <span className="text-secondary">LATER</span>
+              <span className="text-primary hover:text-primary-glow transition-colors cursor-pointer">INNOVATE</span> | 
+              <span className="text-accent hover:text-accent/80 transition-colors cursor-pointer mx-1">CREATE</span> | 
+              <span className="text-secondary hover:text-secondary/80 transition-colors cursor-pointer">INSPIRE</span>
             </div>
           </div>
+        </div>
+      </div>
+      
+      {/* Scroll down indicator */}
+      <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
+        <div className="flex flex-col items-center gap-2 text-muted-foreground hover:text-primary transition-colors cursor-pointer">
+          <span className="text-sm font-medium">Scroll Down</span>
+          <ChevronDown className="w-5 h-5" />
         </div>
       </div>
     </section>
