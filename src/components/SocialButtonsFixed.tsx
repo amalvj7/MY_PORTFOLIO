@@ -2,9 +2,9 @@ import { Linkedin, Twitter, Instagram } from "lucide-react";
 
 const SocialButtonsFixed = () => {
   const socials = [
-    { icon: Linkedin, href: "#", label: "LinkedIn" },
-    { icon: Twitter, href: "#", label: "Twitter" },
-    { icon: Instagram, href: "#", label: "Instagram" },
+    { icon: Linkedin, href: "https://linkedin.com/in/amal-nath-vj-656213287", label: "LinkedIn" },
+    { icon: Twitter, href: "https://twitter.com/vj_2727", label: "Twitter" },
+    { icon: Instagram, href: "https://instagram.com/__vj._", label: "Instagram" },
   ];
 
   return (

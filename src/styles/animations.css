@@ -16,6 +16,48 @@ html {
   scroll-behavior: smooth;
 }
 
+/* Fade in up animation for AboutSection */
+@keyframes fade-in-up {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in-up {
+  animation: fade-in-up 0.8s ease-out forwards;
+  opacity: 0;
+}
+
+/* About section specific hover effects */
+.about-pill-hover {
+  transform: translateY(-4px) scale(1.05) !important;
+  box-shadow: 0 8px 25px rgba(108,99,255,0.2) !important;
+  border-color: #8b5cf6 !important;
+  background-color: rgba(139, 92, 246, 0.1) !important;
+}
+
+.about-keyword {
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+.about-keyword:hover {
+  transform: translateY(-2px);
+}
+
+.about-para {
+  transition: all 0.3s ease;
+}
+
+.about-para:hover {
+  transform: translateY(-2px);
+}
+
 /* Custom scroll reveal animations */
 .scroll-reveal {
   opacity: 0;

@@ -16,7 +16,7 @@ const ProjectCard = ({ title, description, tags, image, demoLink, githubLink }: 
 
   return (
     <div
-      className="group relative rounded-lg overflow-hidden bg-white border border-gray-200 shadow-sm hover:shadow-lg transition-all duration-300 hover:-translate-y-1"
+      className="group relative rounded-xl overflow-hidden bg-white border border-gray-200 shadow-[0_10px_20px_-10px_rgba(0,0,0,0.25),0_2px_8px_rgba(0,0,0,0.08)] hover:shadow-[0_20px_40px_-12px_rgba(0,0,0,0.35),0_6px_16px_rgba(0,0,0,0.12)] transition-all duration-300 hover:-translate-y-1 h-full flex flex-col"
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >
@@ -60,7 +60,7 @@ const ProjectCard = ({ title, description, tags, image, demoLink, githubLink }: 
       </div>
       
       {/* Content */}
-      <div className="p-6">
+      <div className="p-6 flex-1 flex flex-col">
         <h3 className="text-xl font-semibold mb-2 text-gray-900 group-hover:text-indigo-600 transition-colors duration-300">
           {title}
         </h3>
@@ -69,7 +69,7 @@ const ProjectCard = ({ title, description, tags, image, demoLink, githubLink }: 
         </p>
         
         {/* Tags */}
-        <div className="flex flex-wrap gap-2">
+        <div className="mt-auto flex flex-wrap gap-2">
           {tags.map((tag, index) => (
             <span
               key={tag}

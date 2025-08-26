@@ -5,6 +5,7 @@ import ProjectsSection from "@/components/ProjectsSection";
 import SkillsSection from "@/components/SkillsSection";
 import ExperienceSection from "@/components/ExperienceSection";
 import DanceSection from "@/components/DanceSection";
+import ResumeSection from "@/components/ResumeSection";
 import ScrollProgress from "@/components/ScrollProgress";
 import { useEffect } from "react";
 
@@ -51,14 +52,8 @@ const Index = () => {
         <DanceSection />
       </section>
       
-      <section id="resume" className="py-20">
-        {/* Placeholder for resume section */}
-        <div className="container mx-auto px-6 text-center">
-          <h2 className="text-4xl font-bold mb-8 bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
-            Resume
-          </h2>
-          <p className="text-muted-foreground">Resume download section coming soon...</p>
-        </div>
+      <section id="resume">
+        <ResumeSection />
       </section>
     </div>
   );

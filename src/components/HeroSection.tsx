@@ -1,5 +1,6 @@
 import { useState, useEffect, useRef } from "react";
-import { ChevronDown, Linkedin, Twitter, Instagram } from "lucide-react";
+import { ChevronDown, Linkedin, Twitter, Instagram, Download } from "lucide-react";
+import resumePDF from "@/assets/AMALNATH_VJ_resume_UST.pdf";
 
 // Photo background particles component
 const FloatingParticles = () => {
@@ -7,27 +8,28 @@ const FloatingParticles = () => {
     const isRightSide = i < 12; // 60% on right side
     return {
       id: i,
-      size: Math.random() * 3 + 1,
+      size: Math.random() * 4 + 2,
       x: isRightSide ? 50 + Math.random() * 50 : Math.random() * 50, // Right 50-100%, Left 0-50%
       y: Math.random() * 100,
       delay: Math.random() * 8,
       duration: Math.random() * 12 + 16,
-      color: i % 6 === 0 ? 'rgba(61,218,180,0.18)' : '#EAEFFE', // Some mint dots
+      color: i % 6 === 0 ? 'rgba(61,218,180,0.45)' : 'rgba(108,99,255,0.25)', // Mint and purple dots
     };
   });
 
   return (
-    <div className="absolute inset-0 overflow-hidden pointer-events-none">
+    <div className="absolute inset-0 overflow-hidden pointer-events-none z-30">
       {particles.map((particle) => (
         <div
           key={particle.id}
-          className="absolute rounded-full animate-float opacity-40"
+          className="absolute rounded-full animate-float"
           style={{
             width: `${particle.size}px`,
             height: `${particle.size}px`,
             left: `${particle.x}%`,
             top: `${particle.y}%`,
             backgroundColor: particle.color,
+            opacity: 1,
             animationDelay: `${particle.delay}s`,
             animationDuration: `${particle.duration}s`,
           }}
@@ -95,6 +97,15 @@ const HeroSection = () => {
     element?.scrollIntoView({ behavior: 'smooth' });
   };
 
+  const handleResumeDownload = () => {
+    const link = document.createElement('a');
+    link.href = resumePDF;
+    link.download = 'AMALNATH_VJ_resume_UST.pdf';
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+  };
+
   return (
     <section 
       ref={heroRef}
@@ -153,6 +164,15 @@ const HeroSection = () => {
               className="btn-tertiary text-gray-600 hover:text-purple-600 font-medium px-6 py-3 transition-all duration-300 focus-visible:outline-none"
             >
               Resume
+            </button>
+            
+            {/* Download Resume CTA */}
+            <button 
+              onClick={handleResumeDownload}
+              className="btn-download flex items-center gap-2 text-gray-600 hover:text-purple-600 font-medium px-6 py-3 transition-all duration-300 focus-visible:outline-none hover:bg-purple-50 rounded-lg"
+            >
+              <Download className="w-4 h-4" />
+              Download CV
             </button>
           </div>
         </div>

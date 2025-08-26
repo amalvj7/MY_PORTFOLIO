@@ -2,6 +2,20 @@ import { useState, useEffect, useRef } from "react";
 import dance1 from "@/assets/dance-1.jpg";
 import dance2 from "@/assets/dance-2.jpg";
 import dance3 from "@/assets/dance-3.jpg";
+// Import all the new dance photos
+import img2869 from "@/assets/IMG_2869.JPG";
+import img6519 from "@/assets/IMG_6519.JPEG";
+import img8205 from "@/assets/IMG_8205.PNG";
+import img8750 from "@/assets/IMG_8750.JPG";
+// import img7261 from "@/assets/IMG_7261.HEIC"; // HEIC format not supported
+import img20240209 from "@/assets/IMG-20240209-WA0061.jpg";
+import img20240413_1 from "@/assets/IMG-20240413-WA0001.jpg";
+import img20240413_2 from "@/assets/IMG-20240413-WA0032.jpg";
+import img20230402 from "@/assets/IMG-20230402-WA0033.jpg";
+import img20221028 from "@/assets/IMG-20221028-WA0025.jpg";
+import img18 from "@/assets/18.jpeg";
+import img5151 from "@/assets/IMG_5151.JPG";
+import omj6997 from "@/assets/OMJ_6997.JPG";
 
 const DanceSection = () => {
   const [selectedImage, setSelectedImage] = useState<string | null>(null);
@@ -20,34 +34,65 @@ const DanceSection = () => {
   
   const danceImages = [
     {
-      src: dance1,
+      src: img2869,
       alt: "Professional dance performance with crew",
       caption: "Leading the college crew to national-level performances"
     },
     {
-      src: dance2,
+      src: img6519,
       alt: "Solo contemporary dance performance",
       caption: "Contemporary dance expression and artistry"
     },
     {
-      src: dance3,
+      src: img8205,
       alt: "Group synchronized dance formation",
       caption: "Team choreography and synchronized movements"
     },
     {
-      src: dance1,
+      src: img8750,
       alt: "Dance competition performance",
       caption: "Competitive dance showcasing technical skills"
     },
     {
-      src: dance2,
+      src: img18,
       alt: "Artistic dance photography",
       caption: "Capturing the beauty of movement and expression"
     },
     {
-      src: dance3,
+      src: img20240209,
       alt: "Dance workshop leadership",
       caption: "Teaching and sharing dance knowledge with others"
+    },
+    {
+      src: img20240413_1,
+      alt: "Stage performance moment",
+      caption: "Memorable stage performances and audience engagement"
+    },
+    {
+      src: img20240413_2,
+      alt: "Dance crew collaboration",
+      caption: "Working together as a team to create amazing performances"
+    },
+    {
+      src: img20230402,
+      alt: "Dance practice session",
+      caption: "Dedicated practice sessions to perfect every move"
+    },
+    {
+      src: img20221028,
+      alt: "Dance event participation",
+      caption: "Active participation in various dance events and competitions"
+    },
+
+    {
+      src: img5151,
+      alt: "Professional dance showcase",
+      caption: "Professional dance showcases and exhibitions"
+    },
+    {
+      src: omj6997,
+      alt: "Dance artistry and creativity",
+      caption: "Expressing creativity and artistry through dance"
     }
   ];
 

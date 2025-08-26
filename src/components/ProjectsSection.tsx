@@ -1,8 +1,9 @@
 import { useEffect, useRef, useState } from "react";
 import ProjectCard from "./ProjectCard";
-import project1 from "@/assets/project-1.jpg";
-import project2 from "@/assets/project-2.jpg";
-import project3 from "@/assets/project-3.jpg";
+import imgEmail from "../../resources/email.jpg";
+import imgSpam from "../../resources/Spam.jpg";
+import imgOpenCV from "../../resources/OpenCV.jpg";
+import imgWater from "../../resources/Smart Water Tank.jpg";
 
 const ProjectsSection = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -20,52 +21,55 @@ const ProjectsSection = () => {
 
   const projects = [
     {
-      title: "AI-Powered Dashboard",
-      description: "Modern web application with machine learning capabilities for data analytics and visualization.",
-      tags: ["React", "Python", "TensorFlow", "ML"],
-      image: project1,
-      demoLink: "#",
-      githubLink: "#"
+      title: "Gmail Automation",
+      description:
+        "Automated inbox management: filters spam/labels, sends scheduled reports, and auto-replies for triggers using Gmail API and SMTP/IMAP. Result: big reduction in manual email work.",
+      tags: [
+        "Python",
+        "Gmail API",
+        "smtplib",
+        "imaplib",
+        "Regex"
+      ],
+      image: imgEmail
     },
     {
-      title: "Neural Network Analyzer",
-      description: "Deep learning model for natural language processing with real-time sentiment analysis.",
-      tags: ["NLP", "Deep Learning", "Python", "Flask"],
-      image: project2,
-      demoLink: "#",
-      githubLink: "#"
+      title: "Fake News Classification",
+      description:
+        ">90% accuracy classifying fake vs real news using TF‑IDF with Logistic Regression/Naive Bayes/Random Forest; includes headline/article preprocessing and a simple predictor UI.",
+      tags: [
+        "Python",
+        "Scikit-learn",
+        "Pandas",
+        "NumPy",
+        "NLTK/Spacy"
+      ],
+      image: imgSpam
     },
     {
-      title: "Mobile Learning App",
-      description: "Cross-platform educational application with personalized learning algorithms.",
-      tags: ["React Native", "AI", "Firebase", "Mobile"],
-      image: project3,
-      demoLink: "#",
-      githubLink: "#"
+      title: "OpenCV Computer Vision Projects",
+      description:
+        "Suite of CV apps: Virtual Paint (object tracking + air-draw), Document Scanner (contour + perspective warp), and Number Plate Detection (Haar + OCR).",
+      tags: [
+        "Python",
+        "OpenCV",
+        "NumPy",
+        "Haar Cascade",
+        "Tesseract OCR"
+      ],
+      image: imgOpenCV
     },
     {
-      title: "Computer Vision System",
-      description: "Real-time object detection and tracking system using advanced computer vision techniques.",
-      tags: ["OpenCV", "Python", "AI", "Computer Vision"],
-      image: project1,
-      demoLink: "#",
-      githubLink: "#"
-    },
-    {
-      title: "Generative AI Platform",
-      description: "Platform for creating and deploying generative AI models with intuitive user interface.",
-      tags: ["Gen AI", "PyTorch", "React", "API"],
-      image: project2,
-      demoLink: "#",
-      githubLink: "#"
-    },
-    {
-      title: "Data Science Toolkit",
-      description: "Comprehensive toolkit for data scientists with automated machine learning pipelines.",
-      tags: ["Data Science", "AutoML", "Python", "Scikit-learn"],
-      image: project3,
-      demoLink: "#",
-      githubLink: "#"
+      title: "Smart Water Tank Management System",
+      description:
+        "IoT-based tank monitoring with ultrasonic sensing and auto pump control; remote monitoring optional. Outcome: prevented overflow and optimized water usage.",
+      tags: [
+        "Arduino/Raspberry Pi",
+        "Ultrasonic Sensor",
+        "IoT",
+        "Python/C++"
+      ],
+      image: imgWater
     }
   ];
 
@@ -75,7 +79,7 @@ const ProjectsSection = () => {
       id="projects"
       className="pt-16 lg:pt-24 pb-32 bg-white relative"
     >
-      <div className="container mx-auto px-6 max-w-7xl">
+      <div className="container mx-auto px-6 max-w-6xl">
         {/* Section Title */}
         <div className={`text-center mb-16 transition-all duration-1000 ${isVisible ? 'animate-fade-in-up' : 'opacity-0 translate-y-8'}`}>
           <h2 className="text-3xl lg:text-4xl font-bold tracking-tight mb-4 text-gray-900">
@@ -87,7 +91,7 @@ const ProjectsSection = () => {
         </div>
         
         {/* Projects Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-x-12 gap-y-16 md:gap-x-16 md:gap-y-20 items-stretch">
           {projects.map((project, index) => (
             <div
               key={index}

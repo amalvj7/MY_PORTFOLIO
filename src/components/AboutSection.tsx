@@ -1,126 +1,126 @@
 import { useEffect, useRef } from "react";
+import bgAbout from "../../resources/IMG_9933.JPG";
+import SocialButtonsFixed from "./SocialButtonsFixed";
+import { FaGraduationCap, FaAward, FaChalkboardTeacher, FaMusic } from "react-icons/fa";
 
 const AboutSection = () => {
   const aboutRef = useRef<HTMLElement>(null);
-  const illustrationRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    const about = aboutRef.current;
-    const illustration = illustrationRef.current;
-    
-    if (!about || !illustration) return;
-
-    // Initially hide the illustration
-    illustration.style.transform = 'translate(-50%, 40px) scale(0.98)';
-    illustration.style.opacity = '0';
-
     const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          // Animate to visible state
-          illustration.style.transform = 'translate(-50%, 0) scale(1)';
-          illustration.style.opacity = '1';
-          observer.disconnect();
-        }
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("animate-fade-in-up");
+          }
+        });
       },
-      { threshold: 0.25 }
+      { threshold: 0.1 }
     );
 
-    observer.observe(about);
+    if (aboutRef.current) {
+      observer.observe(aboutRef.current);
+    }
 
     return () => observer.disconnect();
   }, []);
 
   const badges = [
-    { text: "🎓 Education", variant: "primary" },
-    { text: "🏆 Siemens Scholar", variant: "primary" },
-    { text: "💃 Dance & Leadership", variant: "mint" },
-    { text: "📚 Physics & Math Tutor", variant: "primary" }
+    { icon: FaGraduationCap, text: "Education", color: "from-blue-500 to-purple-600" },
+    { icon: FaAward, text: "Siemens Scholar", color: "from-purple-500 to-pink-600" },
+    { icon: FaMusic, text: "Dance & Leadership", color: "from-pink-500 to-red-600" },
+    { icon: FaChalkboardTeacher, text: "Physics & Math Tutor", color: "from-green-500 to-blue-600" },
   ];
 
   return (
-    <section 
+    <section
       ref={aboutRef}
-      id="about" 
-      className="about pt-16 lg:pt-24 pb-32 lg:pb-48 relative bg-white"
+      id="about"
+      className="relative min-h-[80vh] py-16 lg:py-24 overflow-hidden"
+      style={{
+        background: "linear-gradient(135deg, #f3e8ff 0%, #e0f2fe 50%, #f0f9ff 100%)"
+      }}
     >
-      <div className="container mx-auto px-6 max-w-4xl relative" style={{ zIndex: 10 }}>
-        {/* Section Title */}
-        <div className="text-center mb-12">
-          <h2 className="text-3xl lg:text-4xl font-bold tracking-tight mb-4 text-gray-900">
-            About Me
-          </h2>
+      {/* Social Icons Fixed Right */}
+      <SocialButtonsFixed />
+
+      {/* Animated background elements */}
+      <div className="absolute inset-0 overflow-hidden">
+        {/* CET background image layer */}
+        <div className="absolute inset-0 opacity-10">
+          <img src={bgAbout} alt="About section background" className="w-full h-full object-cover" />
         </div>
-        
-        {/* Main Content */}
-        <div className="text-center lg:text-left max-w-none lg:max-w-[65ch] mx-auto lg:mx-0 mb-12">
-          <div className="text-lg leading-relaxed space-y-6 text-gray-600">
-            <p>
-              I'm a passionate software engineer and dancer, blending technical expertise with creative expression.
-            </p>
-            
-            <p>
-              I'm a B.Tech Computer Science and Engineering graduate from the College of Engineering 
-              Trivandrum (CET) and a proud{" "}
-              <span className="font-medium text-purple-600">Siemens Scholar</span>. 
-              I'm currently working at UVI Technology as a Software Developer, where I build innovative, impactful solutions.
-            </p>
-            
-            <p>
-              Outside of work, I'm passionate about{" "}
-              <span className="font-medium text-teal-500">dance</span>, 
-              having led my college crew to national-level performances, and I love sharing knowledge as a{" "}
-              <span className="font-medium text-purple-600">tutor</span>{" "}
-              in physics and math.
-            </p>
-            
-            <p>
-              In tech, my interests lie in Machine Learning, Deep Learning, and Natural Language 
-              Processing, and I'm driven to merge these with creativity to develop solutions that inspire 
-              and create positive change.
-            </p>
+        <div className="absolute -top-40 -right-40 w-80 h-80 bg-purple-200 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-blob"></div>
+        <div className="absolute -bottom-40 -left-40 w-80 h-80 bg-blue-200 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-blob animation-delay-2000"></div>
+        <div className="absolute top-40 left-40 w-80 h-80 bg-pink-200 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-blob animation-delay-4000"></div>
+      </div>
+
+      <div className="relative z-10 w-full max-w-6xl mx-auto px-6">
+        {/* Main content card */}
+        <div className="bg-white/80 backdrop-blur-sm rounded-3xl shadow-2xl border border-white/20 p-8 lg:p-12">
+          {/* Section Title with gradient underline */}
+          <div className="text-center mb-12">
+            <h2 className="text-5xl lg:text-6xl font-bold tracking-tight mb-4 bg-gradient-to-r from-purple-600 via-blue-600 to-purple-600 bg-clip-text text-transparent">
+              About Me
+            </h2>
+            <div className="w-24 h-1 bg-gradient-to-r from-purple-500 to-blue-500 mx-auto rounded-full"></div>
+          </div>
+
+          {/* Content container */}
+          <div className="max-w-4xl mx-auto space-y-8">
+            {/* Intro paragraph with larger font */}
+            <div className="text-center">
+              <p className="text-xl lg:text-2xl text-gray-800 leading-relaxed font-medium">
+                I'm a B.Tech Computer Science and Engineering graduate from the{" "}
+                <strong className="text-purple-600">College of Engineering Trivandrum (CET)</strong>{" "}
+                and a proud <strong className="text-purple-600">Siemens Scholar</strong>, blending technical expertise with creative expression.
+              </p>
+            </div>
+
+            {/* Animated divider */}
+            <div className="flex justify-center">
+              <div className="w-16 h-1 bg-gradient-to-r from-transparent via-purple-400 to-transparent rounded-full animate-pulse"></div>
+            </div>
+
+            {/* Second paragraph */}
+            <div className="text-center">
+              <p className="text-lg lg:text-xl text-gray-700 leading-relaxed">
+                Outside of academics and work, I'm passionate about dance, having led my college crew to national-level performances, and I love sharing knowledge as a tutor in physics and math.
+              </p>
+            </div>
+
+            {/* Animated divider */}
+            <div className="flex justify-center">
+              <div className="w-12 h-1 bg-gradient-to-r from-transparent via-blue-400 to-transparent rounded-full animate-pulse animation-delay-1000"></div>
+            </div>
+
+            {/* Third paragraph */}
+            <div className="text-center">
+              <p className="text-lg lg:text-xl text-gray-700 leading-relaxed">
+                In tech, my interests lie in Machine Learning, Deep Learning, and Natural Language Processing, and I'm driven to merge these with creativity to develop solutions that inspire and create positive change.
+              </p>
+            </div>
+
+            {/* Enhanced badges with icons and hover effects */}
+            <div className="flex flex-wrap justify-center gap-4 mt-12">
+              {badges.map((badge, index) => (
+                <div
+                  key={badge.text}
+                  className="group relative"
+                  style={{ animationDelay: `${index * 200}ms` }}
+                >
+                  <span className="inline-flex items-center gap-3 px-6 py-3 rounded-full border-2 border-gray-200 bg-white/90 backdrop-blur-sm text-gray-800 font-medium transition-all duration-500 hover:scale-110 hover:shadow-xl hover:shadow-purple-500/20 hover:border-purple-300 cursor-pointer">
+                    <badge.icon className="w-5 h-5 text-purple-600 group-hover:scale-125 transition-transform duration-300" />
+                    {badge.text}
+                  </span>
+                  
+                  {/* Gradient glow effect on hover */}
+                  <div className={`absolute inset-0 rounded-full bg-gradient-to-r ${badge.color} opacity-0 group-hover:opacity-20 blur-lg transition-opacity duration-500 -z-10`}></div>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
-        
-        {/* Skill Badges */}
-        <div className="flex flex-wrap justify-center lg:justify-start gap-4">
-          {badges.map((badge, index) => (
-            <div
-              key={index}
-              className={`badge ${badge.variant} inline-flex items-center gap-2 px-4 py-2 border border-gray-200 rounded-full bg-white text-gray-800 hover:border-purple-500 hover:shadow-lg hover:-translate-y-1 transition-all duration-200 cursor-pointer focus:outline-none focus:ring-2 focus:ring-purple-500 focus:ring-offset-2`}
-              role="button"
-              tabIndex={0}
-              onKeyDown={(e) => {
-                if (e.key === 'Enter' || e.key === ' ') {
-                  e.preventDefault();
-                }
-              }}
-            >
-              {badge.text}
-            </div>
-          ))}
-        </div>
-      </div>
-      
-      {/* Background Illustration */}
-      <div 
-        ref={illustrationRef}
-        className="about-illustration absolute left-1/2 bottom-0 transform -translate-x-1/2 pointer-events-none opacity-0"
-        aria-hidden="true"
-        style={{
-          transition: 'all 650ms cubic-bezier(0.22,1,0.36,1)',
-          zIndex: -1
-        }}
-      >
-        <img 
-          src="/about_us_page.svg" 
-          alt=""
-          loading="lazy"
-          className="w-full max-w-4xl h-auto"
-          style={{
-            filter: 'drop-shadow(0 18px 50px rgba(108,99,255,0.15))'
-          }}
-        />
       </div>
     </section>
   );

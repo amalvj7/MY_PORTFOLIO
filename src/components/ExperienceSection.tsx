@@ -1,4 +1,7 @@
 import { useEffect, useRef, useState } from "react";
+import bgSiemens from "../../resources/Siemens.jpg";
+import bgSiemensFiles from "../../resources/Siemens files.jpg";
+import bgStaff from "../../resources/staff.jpg";
 
 const ExperienceSection = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -16,36 +19,36 @@ const ExperienceSection = () => {
 
   const experiences = [
     {
-      company: "UVI Technology",
-      role: "Software Developer",
-      period: "2023 - Present",
-      description: "Building innovative, impactful solutions using cutting-edge technologies. Developing scalable web applications and machine learning models.",
-      technologies: ["React", "Python", "TensorFlow", "AWS"],
-      icon: "💼"
+      company: "citylink Travel corporation",
+      role: "Counter Staff (Full-time)",
+      period: "Feb 2025 - May 2025 · 4 mos · Trivandrum, Kerala, India · On-site",
+      description: "Handled front-desk operations and direct client interactions. Learned real-world client handling, air ticket booking, and digital marketing.",
+      technologies: ["Communication", "Customer Service", "+1 skill"],
+      icon: "🏢"
     },
     {
-      company: "College of Engineering Trivandrum",
-      role: "B.Tech Computer Science & Engineering",
-      period: "2019 - 2023",
-      description: "Graduated with expertise in software engineering, machine learning, and data structures. Led college dance crew to national-level performances.",
-      technologies: ["Data Structures", "Algorithms", "ML", "Software Engineering"],
+      company: "Siemens",
+      role: "Siemens Scholar (Part-time)",
+      period: "Dec 2021 - Jun 2025 · 3 yrs 7 mos · Hybrid",
+      description: "Selected Siemens Scholar; engaged in continuous learning and projects under mentorship while pursuing academics.",
+      technologies: ["Scholarship", "Mentorship", "Engineering"],
       icon: "🎓"
     },
     {
-      company: "Siemens Scholar Program",
-      role: "Research Scholar",
-      period: "2022 - 2023",
-      description: "Selected for prestigious Siemens scholarship program focusing on advanced technology research and innovation in engineering.",
-      technologies: ["Research", "Innovation", "Engineering", "Technology"],
-      icon: "🔬"
+      company: "Siemens Technology and Private Limited",
+      role: "Support Engineer (Internship)",
+      period: "Jun 2024 - Oct 2024 · 5 mos · On-site",
+      description: "Completed a 2‑month internship contributing as a support engineer and developer. Worked with building automation stack and tooling.",
+      technologies: ["Desigo", "SQL", "+1 skill"],
+      icon: "🧰"
     },
     {
-      company: "Physics & Math Tutoring",
-      role: "Private Tutor",
-      period: "2020 - Present",
-      description: "Sharing knowledge as a tutor in physics and mathematics, helping students excel in their academic pursuits.",
-      technologies: ["Teaching", "Physics", "Mathematics", "Communication"],
-      icon: "📚"
+      company: "SITRAIN - Advanced Mechatronics",
+      role: "Trainee",
+      period: "Jan 2024 - Feb 2024 · 2 mos · Bengaluru, India · On-site",
+      description: "Completed advanced mechatronics training with focus on PLC programming, system integration, and hands-on labs.",
+      technologies: ["PLC Programming", "Mechatronics"],
+      icon: "⚙️"
     }
   ];
 
@@ -53,9 +56,9 @@ const ExperienceSection = () => {
     <section 
       ref={sectionRef}
       id="experience"
-      className="pt-16 lg:pt-24 pb-32 bg-white relative"
+      className="pt-16 lg:pt-24 pb-32 bg-white relative overflow-hidden"
     >
-      <div className="container mx-auto px-6 max-w-7xl">
+      <div className="container mx-auto px-6 max-w-7xl relative">
         {/* Section Title */}
         <div className={`text-center mb-16 transition-all duration-1000 ${isVisible ? 'animate-fade-in-up' : 'opacity-0 translate-y-8'}`}>
           <h2 className="text-3xl lg:text-4xl font-bold tracking-tight mb-4 text-gray-900">
@@ -72,7 +75,19 @@ const ExperienceSection = () => {
             {/* Timeline line */}
             <div className="absolute left-8 top-0 bottom-0 w-0.5 bg-gradient-to-b from-indigo-500 to-mint-500 hidden md:block"></div>
             
-            {experiences.map((exp, index) => (
+            {experiences.map((exp, index) => {
+              const lowerCompany = exp.company.toLowerCase();
+              const lowerRole = exp.role.toLowerCase();
+              const bgForCard =
+                lowerCompany.includes('siemens technology') || lowerRole.includes('support engineer')
+                  ? bgSiemensFiles
+                  : lowerCompany.includes('siemens') || lowerRole.includes('siemens scholar')
+                  ? bgSiemens
+                  : lowerCompany.includes('citylink') || lowerRole.includes('counter staff')
+                  ? bgStaff
+                  : undefined;
+
+              return (
               <div
                 key={index}
                 className={`relative flex items-start mb-12 transition-all duration-1000 ${isVisible ? 'animate-fade-in-up' : 'opacity-0 translate-y-8'}`}
@@ -82,7 +97,14 @@ const ExperienceSection = () => {
                 <div className="absolute left-6 w-4 h-4 bg-indigo-600 rounded-full border-4 border-white shadow-lg hidden md:block"></div>
                 
                 {/* Content */}
-                <div className="md:ml-20 bg-white border border-gray-200 rounded-xl p-8 shadow-sm hover:shadow-lg transition-all duration-300 hover:-translate-y-1 w-full group">
+                <div className="md:ml-20 bg-white border border-gray-200 rounded-xl p-8 shadow-sm hover:shadow-lg transition-all duration-300 hover:-translate-y-1 w-full group relative overflow-hidden">
+                  {bgForCard && (
+                    <div
+                      className="absolute inset-0 opacity-10 pointer-events-none"
+                      style={{ backgroundImage: `url(${bgForCard})`, backgroundSize: 'cover', backgroundPosition: 'center' }}
+                    />
+                  )}
+                  <div className="relative z-10">
                   <div className="flex items-start mb-4">
                     <span className="text-2xl mr-4 mt-1">{exp.icon}</span>
                     <div className="flex-1">
@@ -112,9 +134,11 @@ const ExperienceSection = () => {
                       </span>
                     ))}
                   </div>
+                  </div>
                 </div>
               </div>
-            ))}
+            );
+            })}
           </div>
         </div>
       </div>
