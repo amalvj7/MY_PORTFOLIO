@@ -41,6 +41,7 @@ const ProjectCard = ({ title, description, tags, image, demoLink, githubLink }: 
             <Button 
               size="sm" 
               className="bg-indigo-600 hover:bg-indigo-700 text-white shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105"
+              onClick={() => window.open(demoLink, '_blank')}
             >
               <Eye className="w-4 h-4 mr-2" />
               Live Demo
@@ -51,6 +52,7 @@ const ProjectCard = ({ title, description, tags, image, demoLink, githubLink }: 
               size="sm" 
               variant="outline" 
               className="bg-white/90 hover:bg-white border-gray-200 text-gray-700 hover:text-gray-900 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105"
+              onClick={() => window.open(githubLink, '_blank')}
             >
               <Github className="w-4 h-4 mr-2" />
               Code

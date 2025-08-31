@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import ProjectCard from "./ProjectCard";
 import imgEmail from "../../resources/email.jpg";
-import imgSpam from "../../resources/Spam.jpg";
+import imgLinkedIn from "../../resources/linkenin.jpg";
 import imgOpenCV from "../../resources/OpenCV.jpg";
 import imgWater from "../../resources/Smart Water Tank.jpg";
 
@@ -23,20 +23,21 @@ const ProjectsSection = () => {
     {
       title: "Gmail Automation",
       description:
-        "Automated inbox management: filters spam/labels, sends scheduled reports, and auto-replies for triggers using Gmail API and SMTP/IMAP. Result: big reduction in manual email work.",
+        "AI-powered Gmail automation tool with email summarization using OpenAI GPT. Features secure OAuth2 integration, automatic email fetching, and intelligent content summarization.",
       tags: [
         "Python",
         "Gmail API",
-        "smtplib",
-        "imaplib",
-        "Regex"
+        "OpenAI GPT",
+        "OAuth2",
+        "Email Automation"
       ],
-      image: imgEmail
+      image: imgEmail,
+      githubLink: "https://github.com/amalvj7/gmail-automation-project"
     },
     {
-      title: "Fake News Classification",
+      title: "Fake Job Classification",
       description:
-        ">90% accuracy classifying fake vs real news using TF‑IDF with Logistic Regression/Naive Bayes/Random Forest; includes headline/article preprocessing and a simple predictor UI.",
+        ">90% accuracy classifying fake vs real job postings using TF‑IDF with Logistic Regression/Naive Bayes/Random Forest; includes job description preprocessing and a simple predictor UI.",
       tags: [
         "Python",
         "Scikit-learn",
@@ -44,12 +45,13 @@ const ProjectsSection = () => {
         "NumPy",
         "NLTK/Spacy"
       ],
-      image: imgSpam
+      image: imgLinkedIn
     },
+
     {
       title: "OpenCV Computer Vision Projects",
       description:
-        "Suite of CV apps: Virtual Paint (object tracking + air-draw), Document Scanner (contour + perspective warp), and Number Plate Detection (Haar + OCR).",
+        "Suite of CV apps: Virtual Paint (real-time object tracking + air-drawing), Document Scanner (contour + perspective warp), and Number Plate Detection (Haar + OCR).",
       tags: [
         "Python",
         "OpenCV",
@@ -57,7 +59,8 @@ const ProjectsSection = () => {
         "Haar Cascade",
         "Tesseract OCR"
       ],
-      image: imgOpenCV
+      image: imgOpenCV,
+      githubLink: "https://github.com/amalvj7/VIRTUAL_PAINT_OPENCV"
     },
     {
       title: "Smart Water Tank Management System",
@@ -69,7 +72,8 @@ const ProjectsSection = () => {
         "IoT",
         "Python/C++"
       ],
-      image: imgWater
+      image: imgWater,
+      githubLink: "https://github.com/amalvj7/Smart_Water_Tank"
     }
   ];
 

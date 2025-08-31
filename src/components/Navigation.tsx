@@ -12,7 +12,6 @@ const Navigation = () => {
     { id: "projects", label: "PROJECTS" },
     { id: "skills", label: "SKILLS" },
     { id: "experience", label: "EXPERIENCE" },
-    { id: "dance", label: "DANCE" },
     { id: "resume", label: "RESUME" },
   ];
 

@@ -1,6 +1,5 @@
 import { useEffect, useRef } from "react";
 import bgAbout from "../../resources/IMG_9933.JPG";
-import SocialButtonsFixed from "./SocialButtonsFixed";
 import { FaGraduationCap, FaAward, FaChalkboardTeacher, FaMusic } from "react-icons/fa";
 
 const AboutSection = () => {
@@ -41,8 +40,7 @@ const AboutSection = () => {
         background: "linear-gradient(135deg, #f3e8ff 0%, #e0f2fe 50%, #f0f9ff 100%)"
       }}
     >
-      {/* Social Icons Fixed Right */}
-      <SocialButtonsFixed />
+
 
       {/* Animated background elements */}
       <div className="absolute inset-0 overflow-hidden">
@@ -72,7 +70,14 @@ const AboutSection = () => {
             <div className="text-center">
               <p className="text-xl lg:text-2xl text-gray-800 leading-relaxed font-medium">
                 I'm a B.Tech Computer Science and Engineering graduate from the{" "}
-                <strong className="text-purple-600">College of Engineering Trivandrum (CET)</strong>{" "}
+                <a 
+                  href="https://www.cet.ac.in/" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="text-purple-600 hover:text-purple-700 underline decoration-2 underline-offset-4 hover:decoration-purple-400 transition-all duration-300 font-bold"
+                >
+                  College of Engineering Trivandrum (CET)
+                </a>{" "}
                 and a proud <strong className="text-purple-600">Siemens Scholar</strong>, blending technical expertise with creative expression.
               </p>
             </div>

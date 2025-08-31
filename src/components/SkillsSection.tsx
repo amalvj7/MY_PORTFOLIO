@@ -101,7 +101,7 @@ const SkillsSection = () => {
 
       <div className="relative container mx-auto px-6 max-w-7xl">
         {/* Section Title */}
-        <div className={`text-center mb-16 transition-all duration-1000 ${isVisible ? 'animate-fade-in-up' : 'opacity-0 translate-y-8'}`}>
+        <div className={`text-center mb-16 transition-all duration-1000 ${isVisible ? 'animate-fade-in-up' : 'opacity-0 translate-y-8'}`}> 
           <h2 className="text-3xl lg:text-4xl font-bold tracking-tight mb-4 text-gray-900">
             Skills & Expertise
           </h2>
@@ -110,7 +110,7 @@ const SkillsSection = () => {
             Technologies and tools I use to bring ideas to life
           </p>
         </div>
-        
+
         {/* Skills Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-10 lg:gap-12">
           {skillCategories.map((category, index) => (
@@ -126,27 +126,27 @@ const SkillsSection = () => {
               {/* Pastel gradient background */}
               <div className={`pointer-events-none absolute inset-0 bg-gradient-to-br ${cardGradients[index % cardGradients.length]} opacity-70`} />
               <div className="relative">
-              {/* Animated gradient bar */}
-              <div className="mb-6 h-1.5 w-full rounded-full bg-gradient-to-r from-indigo-400 via-purple-400 to-emerald-400" />
-              <div className="flex items-center mb-6">
-                <span className="mr-3 inline-flex h-10 w-10 items-center justify-center rounded-full bg-gradient-to-tr from-indigo-100 to-emerald-100 text-xl ring-1 ring-inset ring-indigo-200/60">
-                  {category.icon}
-                </span>
-                <h3 className="text-xl font-semibold text-gray-900 group-hover:text-indigo-600 transition-colors duration-300">
-                  {category.title}
-                </h3>
-              </div>
-              <div className="flex flex-wrap gap-4">
-                {category.skills.map((skill, skillIndex) => (
-                  <span
-                    key={skillIndex}
-                    className="inline-flex items-center gap-2 px-4 py-2 rounded-full text-sm font-medium bg-gradient-to-b from-white/90 to-gray-50/90 text-gray-700 border border-gray-200/80 shadow-[0_1px_2px_rgba(0,0,0,0.06)] hover:shadow-[0_6px_16px_-6px_rgba(99,102,241,0.45)] hover:scale-[1.06] hover:border-indigo-300/70 hover:ring-2 hover:ring-indigo-300/40 transition-all duration-300 ease-out cursor-default"
-                  >
-                    {skillIconMap[skill.toLowerCase()] ?? <Code2 className="w-3.5 h-3.5 text-gray-500" />}
-                    {skill}
+                {/* Animated gradient bar */}
+                <div className="mb-6 h-1.5 w-full rounded-full bg-gradient-to-r from-indigo-400 via-purple-400 to-emerald-400" />
+                <div className="flex items-center mb-6">
+                  <span className="mr-3 inline-flex h-10 w-10 items-center justify-center rounded-full bg-gradient-to-tr from-indigo-100 to-emerald-100 text-xl ring-1 ring-inset ring-indigo-200/60">
+                    {category.icon}
                   </span>
-                ))}
-              </div>
+                  <h3 className="text-xl font-semibold text-gray-900 group-hover:text-indigo-600 transition-colors duration-300">
+                    {category.title}
+                  </h3>
+                </div>
+                <div className="flex flex-wrap gap-4">
+                  {category.skills.map((skill, skillIndex) => (
+                    <span
+                      key={skillIndex}
+                      className="inline-flex items-center gap-2 px-4 py-2 rounded-full text-sm font-medium bg-gradient-to-b from-white/90 to-gray-50/90 text-gray-700 border border-gray-200/80 shadow-[0_1px_2px_rgba(0,0,0,0.06)] hover:shadow-[0_6px_16px_-6px_rgba(99,102,241,0.45)] hover:scale-[1.06] hover:border-indigo-300/70 hover:ring-2 hover:ring-indigo-300/40 transition-all duration-300 ease-out cursor-default"
+                    >
+                      {skillIconMap[skill.toLowerCase()] ?? <Code2 className="w-3.5 h-3.5 text-gray-500" />}
+                      {skill}
+                    </span>
+                  ))}
+                </div>
               </div>
             </motion.div>
           ))}

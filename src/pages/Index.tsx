@@ -4,7 +4,7 @@ import AboutSection from "@/components/AboutSection";
 import ProjectsSection from "@/components/ProjectsSection";
 import SkillsSection from "@/components/SkillsSection";
 import ExperienceSection from "@/components/ExperienceSection";
-import DanceSection from "@/components/DanceSection";
+// import DanceSection from "@/components/DanceSection";
 import ResumeSection from "@/components/ResumeSection";
 import ScrollProgress from "@/components/ScrollProgress";
 import { useEffect } from "react";
@@ -48,9 +48,7 @@ const Index = () => {
         <ExperienceSection />
       </section>
       
-      <section id="dance">
-        <DanceSection />
-      </section>
+  {/* Dance section removed as requested */}
       
       <section id="resume">
         <ResumeSection />
