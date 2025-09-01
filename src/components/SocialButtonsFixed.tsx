@@ -4,7 +4,7 @@ const SocialButtonsFixed = () => {
   const socials = [
     { icon: Linkedin, href: "https://linkedin.com/in/amal-nath-vj-656213287", label: "LinkedIn" },
     { icon: Twitter, href: "https://twitter.com/vj_2727", label: "Twitter" },
-    { icon: Instagram, href: "https://instagram.com/__vj._", label: "Instagram" },
+    { icon: Instagram, href: "https://instagram.com/__vj_._", label: "Instagram" },
   ];
 
   return (
