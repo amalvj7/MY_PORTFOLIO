@@ -68,13 +68,11 @@ const ExperienceSection = () => {
             My journey through technology, education, and continuous learning
           </p>
         </div>
-        
         {/* Experience Timeline */}
         <div className="max-w-4xl mx-auto">
           <div className="relative">
             {/* Timeline line */}
             <div className="absolute left-8 top-0 bottom-0 w-0.5 bg-gradient-to-b from-indigo-500 to-mint-500 hidden md:block"></div>
-            
             {experiences.map((exp, index) => {
               const lowerCompany = exp.company.toLowerCase();
               const lowerRole = exp.role.toLowerCase();
@@ -95,15 +93,10 @@ const ExperienceSection = () => {
               >
                 {/* Timeline dot */}
                 <div className="absolute left-6 w-4 h-4 bg-indigo-600 rounded-full border-4 border-white shadow-lg hidden md:block"></div>
-                
                 {/* Content */}
                 <div className="md:ml-20 bg-white border border-gray-200 rounded-xl p-8 shadow-sm hover:shadow-lg transition-all duration-300 hover:-translate-y-1 w-full group relative overflow-hidden">
-                  {bgForCard && (
-                    <div
-                      className="absolute inset-0 opacity-10 pointer-events-none"
-                      style={{ backgroundImage: `url(${bgForCard})`, backgroundSize: 'cover', backgroundPosition: 'center' }}
-                    />
-                  )}
+                  {/* Removed background image, replaced with pastel background color */}
+                  <div className={`absolute inset-0 ${['bg-indigo-50','bg-purple-50','bg-emerald-50','bg-pink-50','bg-blue-50','bg-yellow-50'][index % 6]} opacity-100 pointer-events-none`} />
                   <div className="relative z-10">
                   <div className="flex items-start mb-4">
                     <span className="text-2xl mr-4 mt-1">{exp.icon}</span>
@@ -119,11 +112,9 @@ const ExperienceSection = () => {
                       </div>
                     </div>
                   </div>
-                  
                   <p className="text-gray-600 mb-4 leading-relaxed">
                     {exp.description}
                   </p>
-                  
                   <div className="flex flex-wrap gap-2">
                     {exp.technologies.map((tech, techIndex) => (
                       <span

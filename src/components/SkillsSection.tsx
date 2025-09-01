@@ -120,11 +120,10 @@ const SkillsSection = () => {
               whileInView="visible"
               viewport={{ once: true, amount: 0.3 }}
               key={index}
-              className={`group relative overflow-hidden rounded-xl p-10 border border-white/20 bg-white/30 backdrop-blur-md shadow-[0_10px_24px_-12px_rgba(0,0,0,0.22),0_2px_10px_rgba(0,0,0,0.06)] hover:shadow-[0_24px_48px_-16px_rgba(0,0,0,0.28),0_8px_20px_rgba(0,0,0,0.10)] transition-all duration-300 ease-out hover:-translate-y-1`}
+              className={`group relative overflow-hidden rounded-xl p-10 border border-white/20 bg-white shadow-[0_10px_24px_-12px_rgba(0,0,0,0.22),0_2px_10px_rgba(0,0,0,0.06)] hover:shadow-[0_24px_48px_-16px_rgba(0,0,0,0.28),0_8px_20px_rgba(0,0,0,0.10)] transition-all duration-300 ease-out hover:-translate-y-1`}
               style={{ animationDelay: `${index * 0.1}s` }}
             >
-              {/* Pastel gradient background */}
-              <div className={`pointer-events-none absolute inset-0 bg-gradient-to-br ${cardGradients[index % cardGradients.length]} opacity-70`} />
+              {/* Removed pastel gradient background, replaced with solid color */}
               <div className="relative">
                 {/* Animated gradient bar */}
                 <div className="mb-6 h-1.5 w-full rounded-full bg-gradient-to-r from-indigo-400 via-purple-400 to-emerald-400" />
