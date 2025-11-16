@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from "react";
-import resumePDF from "@/assets/AMALNATH_VJ_resume_UST.pdf";
+import resumePDF from "@/assets/AMALNATH_VJ_resume.pdf";
 import { Download, FileText, Eye } from "lucide-react";
 
 const ResumeSection = () => {
