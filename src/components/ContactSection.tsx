@@ -87,7 +87,7 @@ const ContactSection = () => {
           </a>
 
           <a
-            href="https://www.linkedin.com/in/amal-nath-vj"
+            href="https://www.linkedin.com/in/amal-nath-vj-656213287/"
             target="_blank" rel="noopener noreferrer"
             className="flex items-center gap-3 px-6 py-4 rounded-xl border border-gray-200 bg-white
                        hover:border-blue-600 hover:shadow-md transition-all duration-200 group"
@@ -95,7 +95,7 @@ const ContactSection = () => {
             <Linkedin className="w-5 h-5 text-gray-500 group-hover:text-blue-600 transition-colors" />
             <div>
               <p className="text-sm font-semibold text-gray-800 group-hover:text-blue-700">LinkedIn</p>
-              <p className="text-xs text-gray-400">in/amal-nath-vj</p>
+              <p className="text-xs text-gray-400">in/amal-nath-vj-656213287</p>
             </div>
             <ArrowRight className="w-4 h-4 text-gray-300 group-hover:text-blue-500 ml-auto transition-colors" />
           </a>
