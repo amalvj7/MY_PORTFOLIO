@@ -1,88 +1,77 @@
-import { useState } from "react";
-import { Button } from "@/components/ui/button";
-import { ExternalLink, Github, Eye } from "lucide-react";
+import { useNavigate } from "react-router-dom";
+import { ArrowRight } from "lucide-react";
 
 interface ProjectCardProps {
+  id: string;
   title: string;
-  description: string;
+  shortDescription: string;
   tags: string[];
   image: string;
-  demoLink?: string;
-  githubLink?: string;
+  index: number;
 }
 
-const ProjectCard = ({ title, description, tags, image, demoLink, githubLink }: ProjectCardProps) => {
-  const [isHovered, setIsHovered] = useState(false);
+const ProjectCard = ({ id, title, shortDescription, tags, image, index }: ProjectCardProps) => {
+  const navigate = useNavigate();
 
   return (
-    <div
-      className="group relative rounded-xl overflow-hidden bg-white border border-gray-200 shadow-[0_10px_20px_-10px_rgba(0,0,0,0.25),0_2px_8px_rgba(0,0,0,0.08)] hover:shadow-[0_20px_40px_-12px_rgba(0,0,0,0.35),0_6px_16px_rgba(0,0,0,0.12)] transition-all duration-300 hover:-translate-y-1 h-full flex flex-col"
-      onMouseEnter={() => setIsHovered(true)}
-      onMouseLeave={() => setIsHovered(false)}
+    <article
+      onClick={() => navigate(`/project/${id}`)}
+      className="group relative bg-white border border-gray-200 rounded-2xl overflow-hidden cursor-pointer
+                 shadow-[0_2px_12px_rgba(0,0,0,0.07)] hover:shadow-[0_12px_40px_rgba(0,0,0,0.13)]
+                 hover:border-indigo-200 transition-all duration-300 hover:-translate-y-1 flex flex-col h-full"
     >
-      {/* Project Image */}
-      <div className="relative aspect-video overflow-hidden">
+      {/* Top accent bar */}
+      <div className="h-0.5 w-full bg-gradient-to-r from-indigo-500 via-purple-500 to-indigo-400 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+
+      {/* Thumbnail */}
+      <div className="relative aspect-video overflow-hidden bg-gray-50">
         <img
           src={image}
           alt={title}
-          className="w-full h-full object-cover transition-all duration-300 group-hover:scale-105"
+          className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-[1.03]"
         />
-        
-        {/* Hover overlay */}
-        <div className={`absolute inset-0 bg-gradient-to-t from-gray-900/60 via-transparent to-transparent transition-opacity duration-300 ${
-          isHovered ? "opacity-100" : "opacity-0"
-        }`} />
-        
-        {/* Action buttons overlay */}
-        <div className={`absolute inset-0 flex items-center justify-center gap-3 transition-all duration-300 ${
-          isHovered ? "opacity-100" : "opacity-0"
-        }`}>
-          {demoLink && (
-            <Button 
-              size="sm" 
-              className="bg-indigo-600 hover:bg-indigo-700 text-white shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105"
-              onClick={() => window.open(demoLink, '_blank')}
-            >
-              <Eye className="w-4 h-4 mr-2" />
-              Live Demo
-            </Button>
-          )}
-          {githubLink && (
-            <Button 
-              size="sm" 
-              variant="outline" 
-              className="bg-white/90 hover:bg-white border-gray-200 text-gray-700 hover:text-gray-900 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105"
-              onClick={() => window.open(githubLink, '_blank')}
-            >
-              <Github className="w-4 h-4 mr-2" />
-              Code
-            </Button>
-          )}
+        {/* Number badge */}
+        <div className="absolute top-3 left-3 w-7 h-7 rounded-full bg-white/90 backdrop-blur flex items-center justify-center shadow-sm">
+          <span className="text-xs font-bold text-gray-500">{String(index + 1).padStart(2, "0")}</span>
         </div>
       </div>
-      
+
       {/* Content */}
       <div className="p-6 flex-1 flex flex-col">
-        <h3 className="text-xl font-semibold mb-2 text-gray-900 group-hover:text-indigo-600 transition-colors duration-300">
+        <h3 className="font-serif text-xl font-bold text-gray-900 mb-2 group-hover:text-indigo-700 transition-colors duration-200 leading-snug">
           {title}
         </h3>
-        <p className="text-gray-600 mb-4 line-clamp-2 leading-relaxed">
-          {description}
+
+        <p className="text-gray-500 text-sm leading-relaxed line-clamp-3 mb-5 flex-1">
+          {shortDescription}
         </p>
-        
+
         {/* Tags */}
-        <div className="mt-auto flex flex-wrap gap-2">
-          {tags.map((tag, index) => (
+        <div className="flex flex-wrap gap-1.5 mb-5">
+          {tags.slice(0, 4).map((tag) => (
             <span
               key={tag}
-              className="px-3 py-1 text-sm font-medium bg-gray-100 text-gray-700 rounded-full hover:bg-indigo-100 hover:text-indigo-700 transition-all duration-300 cursor-default"
+              className="px-2.5 py-0.5 text-xs font-medium text-gray-600 bg-gray-100 rounded-full border border-gray-200"
             >
               {tag}
             </span>
           ))}
+          {tags.length > 4 && (
+            <span className="px-2.5 py-0.5 text-xs font-medium text-gray-400 bg-gray-50 rounded-full border border-gray-200">
+              +{tags.length - 4} more
+            </span>
+          )}
+        </div>
+
+        {/* Footer CTA */}
+        <div className="flex items-center justify-between pt-4 border-t border-gray-100">
+          <span className="text-xs text-gray-400 tracking-widest uppercase font-medium">View Project</span>
+          <span className="w-8 h-8 rounded-full flex items-center justify-center bg-gray-100 group-hover:bg-indigo-600 transition-colors duration-200">
+            <ArrowRight className="w-3.5 h-3.5 text-gray-500 group-hover:text-white transition-colors duration-200" />
+          </span>
         </div>
       </div>
-    </div>
+    </article>
   );
 };
 

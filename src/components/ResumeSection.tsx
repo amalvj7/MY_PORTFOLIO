@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from "react";
-import resumePDF from "@/assets/AMALNATH_VJ_resume.pdf";
+import resumePDF from "@/assets/AMALNATH_resume_new.pdf";
 import { Download, FileText, Eye } from "lucide-react";
 
 const ResumeSection = () => {
@@ -19,7 +19,7 @@ const ResumeSection = () => {
   const handleDownload = () => {
     const link = document.createElement('a');
     link.href = resumePDF;
-    link.download = 'AMALNATH_VJ_resume_UST.pdf';
+    link.download = 'AMALNATH_resume.pdf';
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);

@@ -4,10 +4,11 @@ import AboutSection from "@/components/AboutSection";
 import ProjectsSection from "@/components/ProjectsSection";
 import SkillsSection from "@/components/SkillsSection";
 import ExperienceSection from "@/components/ExperienceSection";
-// import DanceSection from "@/components/DanceSection";
 import ResumeSection from "@/components/ResumeSection";
+import ContactSection from "@/components/ContactSection";
 import ScrollProgress from "@/components/ScrollProgress";
 import { useEffect } from "react";
+
 
 const Index = () => {
   // Add smooth scrolling to the document
@@ -34,24 +35,25 @@ const Index = () => {
       <section id="about">
         <AboutSection />
       </section>
-      
-      
-      <section id="projects">
-        <ProjectsSection />
-      </section>
-      
-      <section id="skills">
-        <SkillsSection />
-      </section>
-      
+
       <section id="experience">
         <ExperienceSection />
       </section>
-      
-  {/* Dance section removed as requested */}
-      
+
+      <section id="skills">
+        <SkillsSection />
+      </section>
+
+      <section id="projects">
+        <ProjectsSection />
+      </section>
+
       <section id="resume">
         <ResumeSection />
+      </section>
+
+      <section id="contact">
+        <ContactSection />
       </section>
     </div>
   );

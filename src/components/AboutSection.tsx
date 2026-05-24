@@ -1,134 +1,113 @@
-import { useEffect, useRef } from "react";
-import bgAbout from "../../resources/IMG_9933.JPG";
-import { FaGraduationCap, FaAward, FaChalkboardTeacher, FaMusic } from "react-icons/fa";
+import { motion } from "framer-motion";
+import { FaGraduationCap, FaAward, FaMusic, FaBrain } from "react-icons/fa";
 
-const AboutSection = () => {
-  const aboutRef = useRef<HTMLElement>(null);
+const badges = [
+  { icon: FaBrain,        text: "AI / ML Engineer",    color: "from-indigo-500 to-violet-600" },
+  { icon: FaAward,        text: "Siemens Scholar",      color: "from-violet-500 to-purple-600" },
+  { icon: FaGraduationCap,text: "B.Tech CSE — CET",     color: "from-blue-500 to-indigo-600"  },
+  { icon: FaMusic,        text: "Dance & Leadership",   color: "from-pink-500 to-rose-600"    },
+];
 
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add("animate-fade-in-up");
-          }
-        });
-      },
-      { threshold: 0.1 }
-    );
-
-    if (aboutRef.current) {
-      observer.observe(aboutRef.current);
-    }
-
-    return () => observer.disconnect();
-  }, []);
-
-  const badges = [
-    { icon: FaGraduationCap, text: "Education", color: "from-blue-500 to-purple-600" },
-    { icon: FaAward, text: "Siemens Scholar", color: "from-purple-500 to-pink-600" },
-    { icon: FaMusic, text: "Dance & Leadership", color: "from-pink-500 to-red-600" },
-    { icon: FaChalkboardTeacher, text: "Physics & Math Tutor", color: "from-green-500 to-blue-600" },
-  ];
-
-  return (
-    <section
-      ref={aboutRef}
-      id="about"
-      className="relative min-h-[80vh] py-16 lg:py-24 overflow-hidden"
-      style={{
-        background: "linear-gradient(135deg, #f3e8ff 0%, #e0f2fe 50%, #f0f9ff 100%)"
-      }}
-    >
-
-
-      {/* Animated background elements */}
-      <div className="absolute inset-0 overflow-hidden">
-        {/* CET background image layer */}
-        <div className="absolute inset-0 opacity-10">
-          <img src={bgAbout} alt="About section background" className="w-full h-full object-cover" />
-        </div>
-        <div className="absolute -top-40 -right-40 w-80 h-80 bg-purple-200 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-blob"></div>
-        <div className="absolute -bottom-40 -left-40 w-80 h-80 bg-blue-200 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-blob animation-delay-2000"></div>
-        <div className="absolute top-40 left-40 w-80 h-80 bg-pink-200 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-blob animation-delay-4000"></div>
-      </div>
-
-      <div className="relative z-10 w-full max-w-6xl mx-auto px-6">
-        {/* Main content card */}
-        <div className="bg-white/80 backdrop-blur-sm rounded-3xl shadow-2xl border border-white/20 p-8 lg:p-12">
-          {/* Section Title with gradient underline */}
-          <div className="text-center mb-12">
-            <h2 className="text-5xl lg:text-6xl font-bold tracking-tight mb-4 bg-gradient-to-r from-purple-600 via-blue-600 to-purple-600 bg-clip-text text-transparent">
-              About Me
-            </h2>
-            <div className="w-24 h-1 bg-gradient-to-r from-purple-500 to-blue-500 mx-auto rounded-full"></div>
-          </div>
-
-          {/* Content container */}
-          <div className="max-w-4xl mx-auto space-y-8">
-            {/* Intro paragraph with larger font */}
-            <div className="text-center">
-              <p className="text-xl lg:text-2xl text-gray-800 leading-relaxed font-medium">
-                I'm a B.Tech Computer Science and Engineering graduate from the{" "}
-                <a 
-                  href="https://www.cet.ac.in/" 
-                  target="_blank" 
-                  rel="noopener noreferrer"
-                  className="text-purple-600 hover:text-purple-700 underline decoration-2 underline-offset-4 hover:decoration-purple-400 transition-all duration-300 font-bold"
-                >
-                  College of Engineering Trivandrum (CET)
-                </a>{" "}
-                and a proud <strong className="text-purple-600">Siemens Scholar</strong>, blending technical expertise with creative expression.
-              </p>
-            </div>
-
-            {/* Animated divider */}
-            <div className="flex justify-center">
-              <div className="w-16 h-1 bg-gradient-to-r from-transparent via-purple-400 to-transparent rounded-full animate-pulse"></div>
-            </div>
-
-            {/* Second paragraph */}
-            <div className="text-center">
-              <p className="text-lg lg:text-xl text-gray-700 leading-relaxed">
-                Outside of academics and work, I'm passionate about dance, having led my college crew to national-level performances, and I love sharing knowledge as a tutor in physics and math.
-              </p>
-            </div>
-
-            {/* Animated divider */}
-            <div className="flex justify-center">
-              <div className="w-12 h-1 bg-gradient-to-r from-transparent via-blue-400 to-transparent rounded-full animate-pulse animation-delay-1000"></div>
-            </div>
-
-            {/* Third paragraph */}
-            <div className="text-center">
-              <p className="text-lg lg:text-xl text-gray-700 leading-relaxed">
-                In tech, my interests lie in Machine Learning, Deep Learning, and Natural Language Processing, and I'm driven to merge these with creativity to develop solutions that inspire and create positive change.
-              </p>
-            </div>
-
-            {/* Enhanced badges with icons and hover effects */}
-            <div className="flex flex-wrap justify-center gap-4 mt-12">
-              {badges.map((badge, index) => (
-                <div
-                  key={badge.text}
-                  className="group relative"
-                  style={{ animationDelay: `${index * 200}ms` }}
-                >
-                  <span className="inline-flex items-center gap-3 px-6 py-3 rounded-full border-2 border-gray-200 bg-white/90 backdrop-blur-sm text-gray-800 font-medium transition-all duration-500 hover:scale-110 hover:shadow-xl hover:shadow-purple-500/20 hover:border-purple-300 cursor-pointer">
-                    <badge.icon className="w-5 h-5 text-purple-600 group-hover:scale-125 transition-transform duration-300" />
-                    {badge.text}
-                  </span>
-                  
-                  {/* Gradient glow effect on hover */}
-                  <div className={`absolute inset-0 rounded-full bg-gradient-to-r ${badge.color} opacity-0 group-hover:opacity-20 blur-lg transition-opacity duration-500 -z-10`}></div>
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-  );
+const fadeUp = {
+  hidden: { opacity: 0, y: 24 },
+  visible: (i: number) => ({
+    opacity: 1, y: 0,
+    transition: { delay: i * 0.1, duration: 0.5, ease: "easeOut" },
+  }),
 };
+
+const AboutSection = () => (
+  <section
+    id="about"
+    className="pt-16 lg:pt-24 pb-32 bg-white relative overflow-hidden"
+  >
+    {/* Subtle background accents */}
+    <div className="pointer-events-none absolute -top-32 -right-32 w-96 h-96 rounded-full bg-indigo-50/70 blur-3xl" />
+    <div className="pointer-events-none absolute bottom-0 -left-24 w-80 h-80 rounded-full bg-violet-50/60 blur-3xl" />
+
+    <div className="relative container mx-auto px-6 max-w-4xl">
+
+      {/* Section header */}
+      <motion.div
+        custom={0} variants={fadeUp} initial="hidden"
+        whileInView="visible" viewport={{ once: true, amount: 0.3 }}
+        className="text-center mb-14"
+      >
+        <p className="text-xs font-semibold tracking-[0.25em] text-indigo-500 uppercase mb-3">Who I am</p>
+        <h2 className="text-3xl lg:text-4xl font-serif font-bold text-gray-900 mb-4">About Me</h2>
+        <div className="mx-auto w-12 h-0.5 bg-indigo-400 rounded" />
+      </motion.div>
+
+      {/* Main content card */}
+      <motion.div
+        custom={1} variants={fadeUp} initial="hidden"
+        whileInView="visible" viewport={{ once: true, amount: 0.2 }}
+        className="bg-[#FAFAF8] border border-gray-200 rounded-3xl p-10 lg:p-14 shadow-sm mb-10"
+      >
+        <div className="space-y-6 text-center max-w-2xl mx-auto">
+          <p className="text-xl lg:text-2xl text-gray-800 leading-relaxed font-medium">
+            I'm an{" "}
+            <span className="text-indigo-600 font-bold">AI & ML Engineer</span> — a B.Tech CSE
+            graduate from the{" "}
+            <a
+              href="https://www.cet.ac.in/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-indigo-600 font-bold underline decoration-2 underline-offset-4
+                         hover:text-indigo-800 transition-colors"
+            >
+              College of Engineering Trivandrum (CET)
+            </a>{" "}
+            and a proud{" "}
+            <span className="text-indigo-600 font-bold">Siemens Scholar</span>, building
+            intelligent systems that solve real-world problems.
+          </p>
+
+          <div className="mx-auto w-16 h-px bg-gradient-to-r from-transparent via-indigo-300 to-transparent" />
+
+          <p className="text-lg text-gray-600 leading-relaxed">
+            My work spans <strong className="text-gray-800">Machine Learning</strong>,{" "}
+            <strong className="text-gray-800">Deep Learning</strong>,{" "}
+            <strong className="text-gray-800">NLP</strong>, and{" "}
+            <strong className="text-gray-800">Generative AI</strong> — from physics-informed
+            ML models for cold-chain logistics to LLM-powered RAG pipelines and multi-agent
+            AI systems. I enjoy working close to both the research and the production side
+            of AI.
+          </p>
+
+          <div className="mx-auto w-16 h-px bg-gradient-to-r from-transparent via-indigo-200 to-transparent" />
+
+          <p className="text-lg text-gray-600 leading-relaxed">
+            Beyond the code, I led my college dance crew to national-level finals and enjoy
+            reading — from mindset and philosophy to entrepreneurship. It's how I stay sharp
+            and think differently about the problems I build for.
+          </p>
+        </div>
+      </motion.div>
+
+      {/* Badges */}
+      <div className="flex flex-wrap justify-center gap-4">
+        {badges.map((badge, i) => (
+          <motion.div
+            key={badge.text}
+            custom={i + 2} variants={fadeUp} initial="hidden"
+            whileInView="visible" viewport={{ once: true, amount: 0.3 }}
+            className="group relative"
+          >
+            <span className="inline-flex items-center gap-2.5 px-5 py-2.5 rounded-full
+                             border border-gray-200 bg-white text-gray-800 font-medium
+                             shadow-sm hover:shadow-md hover:border-indigo-300
+                             hover:scale-105 transition-all duration-300 cursor-default">
+              <badge.icon className="w-4 h-4 text-indigo-500 group-hover:scale-110 transition-transform duration-300" />
+              {badge.text}
+            </span>
+            <div className={`absolute inset-0 rounded-full bg-gradient-to-r ${badge.color}
+                            opacity-0 group-hover:opacity-10 blur-lg transition-opacity duration-500 -z-10`} />
+          </motion.div>
+        ))}
+      </div>
+    </div>
+  </section>
+);
 
 export default AboutSection;

@@ -9,10 +9,11 @@ const Navigation = () => {
   const navItems = [
     { id: "home", label: "HOME" },
     { id: "about", label: "ABOUT" },
-    { id: "projects", label: "PROJECTS" },
-    { id: "skills", label: "SKILLS" },
     { id: "experience", label: "EXPERIENCE" },
+    { id: "skills", label: "SKILLS" },
+    { id: "projects", label: "PROJECTS" },
     { id: "resume", label: "RESUME" },
+    { id: "contact", label: "CONTACT" },
   ];
 
   // Smooth scroll to section

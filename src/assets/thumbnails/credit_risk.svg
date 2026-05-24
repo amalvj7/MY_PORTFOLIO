@@ -1,0 +1,74 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1" gradientUnits="objectBoundingBox">
+      <stop offset="0%" stop-color="#0F172A"/>
+      <stop offset="100%" stop-color="#1a3461"/>
+    </linearGradient>
+    <linearGradient id="cardGrad" x1="0" y1="0" x2="1" y2="1" gradientUnits="objectBoundingBox">
+      <stop offset="0%" stop-color="#2563EB"/>
+      <stop offset="100%" stop-color="#4338CA"/>
+    </linearGradient>
+    <linearGradient id="barGreen" x1="0" y1="0" x2="0" y2="1" gradientUnits="objectBoundingBox">
+      <stop offset="0%" stop-color="#4ADE80"/>
+      <stop offset="100%" stop-color="#16A34A"/>
+    </linearGradient>
+    <linearGradient id="barRed" x1="0" y1="0" x2="0" y2="1" gradientUnits="objectBoundingBox">
+      <stop offset="0%" stop-color="#F87171"/>
+      <stop offset="100%" stop-color="#DC2626"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Background -->
+  <rect width="800" height="450" fill="url(#bg)"/>
+
+  <!-- Decorative circles -->
+  <circle cx="720" cy="60" r="120" fill="rgba(255,255,255,0.02)"/>
+  <circle cx="720" cy="60" r="80" fill="rgba(255,255,255,0.03)"/>
+  <circle cx="100" cy="400" r="150" fill="rgba(37,99,235,0.08)"/>
+
+  <!-- Credit Card -->
+  <rect x="70" y="90" width="390" height="235" rx="18" fill="url(#cardGrad)"/>
+  <rect x="70" y="90" width="390" height="235" rx="18" fill="none" stroke="rgba(255,255,255,0.18)" stroke-width="1.5"/>
+  <!-- Card shine strip -->
+  <rect x="70" y="90" width="390" height="65" rx="18" fill="rgba(255,255,255,0.06)"/>
+  <!-- Chip -->
+  <rect x="120" y="140" width="54" height="42" rx="5" fill="#FCD34D"/>
+  <line x1="120" y1="161" x2="174" y2="161" stroke="#92400E" stroke-width="1.5" opacity="0.55"/>
+  <line x1="147" y1="140" x2="147" y2="182" stroke="#92400E" stroke-width="1.5" opacity="0.55"/>
+  <!-- Contactless waves -->
+  <path d="M 395 148 Q 408 161 395 174" fill="none" stroke="white" stroke-width="2.5" opacity="0.75"/>
+  <path d="M 382 138 Q 403 161 382 184" fill="none" stroke="white" stroke-width="2.5" opacity="0.5"/>
+  <path d="M 369 128 Q 398 161 369 194" fill="none" stroke="white" stroke-width="2.5" opacity="0.3"/>
+  <!-- Card number -->
+  <text x="120" y="250" fill="rgba(255,255,255,0.88)" font-family="'Courier New', monospace" font-size="20" letter-spacing="4">•••• •••• •••• 4821</text>
+  <!-- Card labels -->
+  <text x="120" y="295" fill="rgba(255,255,255,0.55)" font-family="Arial, sans-serif" font-size="11" letter-spacing="2">CARD HOLDER</text>
+  <text x="430" y="295" fill="rgba(255,255,255,0.55)" font-family="Arial, sans-serif" font-size="11" letter-spacing="1" text-anchor="end">12/27</text>
+
+  <!-- Risk Bar Chart Panel -->
+  <rect x="510" y="70" width="240" height="290" rx="14" fill="rgba(255,255,255,0.04)" stroke="rgba(255,255,255,0.09)" stroke-width="1.2"/>
+  <!-- Panel title -->
+  <text x="630" y="100" fill="rgba(255,255,255,0.65)" font-family="Arial, sans-serif" font-size="12" text-anchor="middle" letter-spacing="1.5">RISK SCORE</text>
+  <!-- Horizontal grid -->
+  <line x1="530" y1="130" x2="730" y2="130" stroke="rgba(255,255,255,0.08)" stroke-width="1"/>
+  <line x1="530" y1="180" x2="730" y2="180" stroke="rgba(255,255,255,0.08)" stroke-width="1"/>
+  <line x1="530" y1="230" x2="730" y2="230" stroke="rgba(255,255,255,0.08)" stroke-width="1"/>
+  <line x1="530" y1="315" x2="730" y2="315" stroke="rgba(255,255,255,0.2)" stroke-width="1"/>
+  <!-- Bars -->
+  <rect x="545" y="250" width="32" height="65" rx="4" fill="url(#barGreen)"/>
+  <rect x="592" y="210" width="32" height="105" rx="4" fill="url(#barGreen)"/>
+  <rect x="639" y="165" width="32" height="150" rx="4" fill="#F59E0B"/>
+  <rect x="686" y="120" width="32" height="195" rx="4" fill="url(#barRed)"/>
+  <!-- Bar labels -->
+  <text x="561" y="333" fill="rgba(255,255,255,0.45)" font-family="Arial" font-size="9" text-anchor="middle">Low</text>
+  <text x="608" y="333" fill="rgba(255,255,255,0.45)" font-family="Arial" font-size="9" text-anchor="middle">Med</text>
+  <text x="655" y="333" fill="rgba(255,255,255,0.45)" font-family="Arial" font-size="9" text-anchor="middle">High</text>
+  <text x="702" y="333" fill="rgba(255,255,255,0.45)" font-family="Arial" font-size="9" text-anchor="middle">Def.</text>
+  <!-- AUC badge -->
+  <rect x="566" y="342" width="130" height="26" rx="6" fill="rgba(34,197,94,0.15)" stroke="#22C55E" stroke-width="1"/>
+  <text x="631" y="360" fill="#4ADE80" font-size="12" text-anchor="middle" font-family="Arial, sans-serif" font-weight="bold">AUC-ROC: 0.92</text>
+
+  <!-- Bottom title -->
+  <text x="400" y="398" fill="white" font-family="Georgia, 'Times New Roman', serif" font-size="25" font-weight="bold" text-anchor="middle">Credit Card Risk Prediction</text>
+  <text x="400" y="426" fill="#64748B" font-family="Arial, sans-serif" font-size="12" text-anchor="middle" letter-spacing="2.5">MACHINE LEARNING  ·  PYTHON  ·  XGBOOST</text>
+</svg>
