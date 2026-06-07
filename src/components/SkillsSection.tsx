@@ -62,11 +62,12 @@ const skillCategories: SkillCategory[] = [
   },
   {
     title: "NLP & LLMs",
-    subtitle: "Language models & retrieval",
+    subtitle: "Language models, agents & retrieval",
     categoryIcon: <MessageSquare className="w-5 h-5" />,
     accent: "from-emerald-500 to-teal-500",
     span: "half",
     skills: [
+      { name: "CrewAI", icon: <Cpu className="w-4 h-4 text-violet-500" /> },
       { name: "Sentence Transformers", icon: <MessageSquare className="w-4 h-4 text-emerald-600" /> },
       { name: "LangChain", icon: <Layers className="w-4 h-4 text-indigo-500" /> },
       { name: "LLaMA", icon: <Brain className="w-4 h-4 text-orange-500" /> },
@@ -117,6 +118,7 @@ const domains = [
   "Natural Language Processing",
   "Large Language Models",
   "Generative AI",
+  "Multi-Agent Orchestration",
   "Agentic AI",
   "Computer Vision",
   "Physics-informed ML",

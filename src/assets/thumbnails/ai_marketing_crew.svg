@@ -1,0 +1,96 @@
+<svg viewBox="0 0 400 260" xmlns="http://www.w3.org/2000/svg" fill="none">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="400" y2="260" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#1e1b4b"/>
+      <stop offset="100%" stop-color="#312e81"/>
+    </linearGradient>
+    <linearGradient id="nodeGrad" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#6366f1"/>
+      <stop offset="100%" stop-color="#8b5cf6"/>
+    </linearGradient>
+    <linearGradient id="centerGrad" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#a78bfa"/>
+      <stop offset="100%" stop-color="#6366f1"/>
+    </linearGradient>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="3" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <filter id="softGlow">
+      <feGaussianBlur stdDeviation="6" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="400" height="260" fill="url(#bg)" rx="12"/>
+
+  <!-- Grid pattern -->
+  <pattern id="grid" width="24" height="24" patternUnits="userSpaceOnUse">
+    <path d="M 24 0 L 0 0 0 24" fill="none" stroke="rgba(99,102,241,0.12)" stroke-width="0.5"/>
+  </pattern>
+  <rect width="400" height="260" fill="url(#grid)" rx="12"/>
+
+  <!-- Connection lines from center to 4 agents -->
+  <line x1="200" y1="130" x2="80" y2="70" stroke="rgba(139,92,246,0.4)" stroke-width="1.5" stroke-dasharray="4 3"/>
+  <line x1="200" y1="130" x2="320" y2="70" stroke="rgba(99,102,241,0.4)" stroke-width="1.5" stroke-dasharray="4 3"/>
+  <line x1="200" y1="130" x2="80" y2="190" stroke="rgba(139,92,246,0.4)" stroke-width="1.5" stroke-dasharray="4 3"/>
+  <line x1="200" y1="130" x2="320" y2="190" stroke="rgba(99,102,241,0.4)" stroke-width="1.5" stroke-dasharray="4 3"/>
+
+  <!-- Animated dots on lines -->
+  <circle cx="140" cy="100" r="2.5" fill="#a78bfa" opacity="0.8"/>
+  <circle cx="260" cy="100" r="2.5" fill="#818cf8" opacity="0.8"/>
+  <circle cx="140" cy="160" r="2.5" fill="#a78bfa" opacity="0.8"/>
+  <circle cx="260" cy="160" r="2.5" fill="#818cf8" opacity="0.8"/>
+
+  <!-- Agent node: Strategist (top-left) -->
+  <circle cx="80" cy="70" r="28" fill="url(#nodeGrad)" opacity="0.9" filter="url(#glow)"/>
+  <circle cx="80" cy="70" r="32" fill="none" stroke="rgba(139,92,246,0.3)" stroke-width="1"/>
+  <!-- Brain/strategy icon -->
+  <text x="80" y="76" font-size="18" text-anchor="middle" fill="white" font-family="sans-serif">🧠</text>
+  <text x="80" y="112" font-size="8.5" text-anchor="middle" fill="#c4b5fd" font-family="sans-serif" font-weight="600" letter-spacing="0.5">STRATEGIST</text>
+
+  <!-- Agent node: Social Writer (top-right) -->
+  <circle cx="320" cy="70" r="28" fill="url(#nodeGrad)" opacity="0.9" filter="url(#glow)"/>
+  <circle cx="320" cy="70" r="32" fill="none" stroke="rgba(99,102,241,0.3)" stroke-width="1"/>
+  <text x="320" y="76" font-size="18" text-anchor="middle" fill="white" font-family="sans-serif">📱</text>
+  <text x="320" y="112" font-size="8.5" text-anchor="middle" fill="#c4b5fd" font-family="sans-serif" font-weight="600" letter-spacing="0.5">SOCIAL</text>
+
+  <!-- Agent node: Blog Writer (bottom-left) -->
+  <circle cx="80" cy="190" r="28" fill="url(#nodeGrad)" opacity="0.9" filter="url(#glow)"/>
+  <circle cx="80" cy="190" r="32" fill="none" stroke="rgba(139,92,246,0.3)" stroke-width="1"/>
+  <text x="80" y="196" font-size="18" text-anchor="middle" fill="white" font-family="sans-serif">✍️</text>
+  <text x="80" y="232" font-size="8.5" text-anchor="middle" fill="#c4b5fd" font-family="sans-serif" font-weight="600" letter-spacing="0.5">BLOG WRITER</text>
+
+  <!-- Agent node: SEO (bottom-right) -->
+  <circle cx="320" cy="190" r="28" fill="url(#nodeGrad)" opacity="0.9" filter="url(#glow)"/>
+  <circle cx="320" cy="190" r="32" fill="none" stroke="rgba(99,102,241,0.3)" stroke-width="1"/>
+  <text x="320" y="196" font-size="18" text-anchor="middle" fill="white" font-family="sans-serif">🔍</text>
+  <text x="320" y="232" font-size="8.5" text-anchor="middle" fill="#c4b5fd" font-family="sans-serif" font-weight="600" letter-spacing="0.5">SEO EXPERT</text>
+
+  <!-- Central hub -->
+  <circle cx="200" cy="130" r="40" fill="rgba(99,102,241,0.15)" filter="url(#softGlow)"/>
+  <circle cx="200" cy="130" r="34" fill="url(#centerGrad)" opacity="0.95"/>
+  <circle cx="200" cy="130" r="38" fill="none" stroke="rgba(167,139,250,0.5)" stroke-width="1.5"/>
+  <!-- CrewAI icon — stylized "C" or robot face -->
+  <text x="200" y="123" font-size="22" text-anchor="middle" fill="white" font-family="sans-serif">🤖</text>
+  <text x="200" y="144" font-size="7.5" text-anchor="middle" fill="rgba(255,255,255,0.85)" font-family="sans-serif" font-weight="700" letter-spacing="1">CrewAI</text>
+
+  <!-- Title bar at bottom -->
+  <rect x="0" y="228" width="400" height="32" fill="rgba(15,14,50,0.7)" rx="0"/>
+  <rect x="0" y="228" width="400" height="32" rx="0"/>
+  <!-- bottom corners -->
+  <rect x="0" y="240" width="400" height="20" fill="rgba(15,14,50,0.7)"/>
+  <rect x="0" y="248" width="400" height="12" rx="0"/>
+  <rect x="376" y="248" width="24" height="12" rx="0" ry="0"/>
+  <rect x="0" y="248" width="400" height="12" fill="rgba(15,14,50,0.7)"/>
+  <text x="200" y="250" font-size="11" text-anchor="middle" fill="#e0e7ff" font-family="sans-serif" font-weight="700" letter-spacing="1.5">AI MARKETING CREW</text>
+
+  <!-- Gemini badge top-right -->
+  <rect x="300" y="6" width="88" height="20" rx="10" fill="rgba(99,102,241,0.25)" stroke="rgba(139,92,246,0.4)" stroke-width="0.8"/>
+  <text x="344" y="20" font-size="8" text-anchor="middle" fill="#c4b5fd" font-family="sans-serif" font-weight="600" letter-spacing="0.5">Gemini 2.0 Flash</text>
+
+  <!-- 4 Agents badge top-left -->
+  <rect x="12" y="6" width="64" height="20" rx="10" fill="rgba(99,102,241,0.25)" stroke="rgba(139,92,246,0.4)" stroke-width="0.8"/>
+  <text x="44" y="20" font-size="8" text-anchor="middle" fill="#c4b5fd" font-family="sans-serif" font-weight="600" letter-spacing="0.5">4 AI Agents</text>
+</svg>

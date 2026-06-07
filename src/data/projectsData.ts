@@ -2,6 +2,7 @@ import imgCreditRisk from "@/assets/thumbnails/credit_risk.svg";
 import imgFlipkart from "@/assets/thumbnails/flipkart_chatbot.svg";
 import imgCarCrash from "@/assets/thumbnails/car_crash.svg";
 import imgLogClassifier from "@/assets/thumbnails/log_classifier.svg";
+import imgMarketingCrew from "@/assets/thumbnails/ai_marketing_crew.svg";
 import imgMedical from "@/assets/Medical.jpg";
 
 export interface TechStackRow {
@@ -146,6 +147,36 @@ export const projects: ProjectData[] = [
       { component: "Tier 2 Embeddings", technology: "Sentence Transformers" },
       { component: "Tier 2 Classifier", technology: "Logistic Regression (Scikit-learn)" },
       { component: "Tier 3", technology: "LLM (zero-shot)" },
+      { component: "Language", technology: "Python 3.10+" },
+    ],
+  },
+  {
+    id: "ai-marketing-crew",
+    title: "AI Marketing Crew",
+    shortDescription:
+      "Four specialized CrewAI agents — Strategist, Social Writer, Blog Writer, SEO Expert — collaborate in a 9-step pipeline to research, plan, write, and optimize a full marketing campaign autonomously.",
+    tags: ["CrewAI", "Google Gemini", "Multi-Agent AI", "Python", "Generative AI", "Marketing Automation"],
+    image: imgMarketingCrew,
+    githubLink: "https://github.com/amalvj7/AI_MARKETINGCREW",
+    overview:
+      "AI Marketing Crew is an autonomous multi-agent system that replaces a real four-person marketing team with four collaborating AI agents. The user provides a product, target audience, and budget — then the system runs a 9-step sequential pipeline where each agent hands its output to the next, exactly like a real team passing work down the line. The Marketing Strategist conducts market and competitor research and builds the strategy. The Social Media Writer plans a content calendar and drafts posts, captions, and reel scripts. The Blog Writer researches topics and produces long-form articles. Finally, the SEO Specialist optimizes all content for search visibility. Each agent is equipped with real tools — live web search, website scraping, and file read/write — so it can gather real-time information and produce saved deliverables rather than just generating text.",
+    features: [
+      "Four specialized AI agents modeling a real marketing team (Strategist, Social Writer, Blog Writer, SEO Expert)",
+      "9-task sequential pipeline — output of each agent feeds directly into the next",
+      "Live web search & website scraping via SerperDevTool + ScrapeWebsiteTool for real-time data",
+      "File I/O tools: agents write deliverables to disk (content calendar, blog drafts, SEO report)",
+      "Config-driven design: agents and tasks defined in clean YAML files for easy customization",
+      "Google Gemini 2.0 Flash as the LLM with planning=True for structured reasoning",
+      "Production hygiene: env-based secrets, .gitignore, full documentation",
+    ],
+    techStack: [
+      { component: "Framework", technology: "CrewAI (multi-agent orchestration)" },
+      { component: "LLM", technology: "Google Gemini 2.0 Flash" },
+      { component: "Search Tool", technology: "SerperDevTool (live web search)" },
+      { component: "Scraping Tool", technology: "ScrapeWebsiteTool" },
+      { component: "File Tools", technology: "FileReadTool, FileWriterTool, DirectoryReadTool" },
+      { component: "Data Validation", technology: "Pydantic" },
+      { component: "Config", technology: "YAML" },
       { component: "Language", technology: "Python 3.10+" },
     ],
   },

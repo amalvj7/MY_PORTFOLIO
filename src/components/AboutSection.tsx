@@ -70,9 +70,10 @@ const AboutSection = () => (
             <strong className="text-gray-800">Deep Learning</strong>,{" "}
             <strong className="text-gray-800">NLP</strong>, and{" "}
             <strong className="text-gray-800">Generative AI</strong> — from physics-informed
-            ML models for cold-chain logistics to LLM-powered RAG pipelines and multi-agent
-            AI systems. I enjoy working close to both the research and the production side
-            of AI.
+            ML models for cold-chain logistics to LLM-powered RAG pipelines, multi-agent
+            AI systems with <strong className="text-gray-800">CrewAI</strong>, and autonomous
+            AI crews that replace entire workflows. I enjoy working close to both the research
+            and the production side of AI.
           </p>
 
           <div className="mx-auto w-16 h-px bg-gradient-to-r from-transparent via-indigo-200 to-transparent" />
